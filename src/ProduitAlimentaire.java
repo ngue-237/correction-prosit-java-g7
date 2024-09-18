@@ -1,8 +1,11 @@
+import java.util.Date;
+
 public class ProduitAlimentaire {
     int idProduit;
     String libelle;
     String marque;
     double prix;
+    Date dateExpiration ;
 
     public ProduitAlimentaire(){
 
@@ -29,6 +32,14 @@ public class ProduitAlimentaire {
         System.out.println("Prix : "+this.prix);
     }
 
-
-
+    @Override
+    public String toString() {
+        return "ProduitAlimentaire{" +
+                "idProduit=" + idProduit +
+                ", libelle='" + libelle + '\'' +
+                ", marque='" + marque + '\'' +
+                ", prix=" + prix +
+                ", dateExpiration=" + dateExpiration.toLocaleString() +
+                '}';
+    }
 }
