@@ -11,7 +11,7 @@ public class Produit {
     public Produit(String nom, Double prix) {
         this.nom = nom;
         this.prix = prix;
-        this.nbreProduit=0;
+       // this.nbreProduit=0;
     }
 
     public void ajoutProduit(String nom, Double prix) {
