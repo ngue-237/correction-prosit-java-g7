@@ -1,11 +1,13 @@
+package produit;
+
 import java.util.Date;
 
 public class ProduitAlimentaire {
-    int idProduit;
-    String libelle;
-    String marque;
-    double prix;
-    Date dateExpiration ;
+    private int idProduit;
+    private String libelle;
+    private String marque;
+    private double prix;
+    private Date dateExpiration ;
 
     /*
     on utilise le constructeur non paramétré pour instancier un objet
@@ -58,14 +60,57 @@ public class ProduitAlimentaire {
         System.out.println("Prix : "+this.prix);
     }
 
+    public int getIdProduit() {
+        return idProduit;
+    }
+
+    public void setIdProduit(int idProduit) {
+        this.idProduit = idProduit;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public String getMarque() {
+        return marque;
+    }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(double prix) {
+        if (prix>0)
+            this.prix = prix;
+        else
+            System.out.println("Entrer une valeur positive");
+    }
+
+    public Date getDateExpiration() {
+        return dateExpiration;
+    }
+
+    public void setDateExpiration(Date dateExpiration) {
+        this.dateExpiration = dateExpiration;
+    }
+
     /*
-    Méthode permettant d'afficher les caractéristiques d'un projet
-    à l'aide de la méthode toString issue d'un héritage implicite entre
-    la classe ProduitAlimentaire et la Super classe Object
-     */
+        Méthode permettant d'afficher les caractéristiques d'un projet
+        à l'aide de la méthode toString issue d'un héritage implicite entre
+        la classe produit.ProduitAlimentaire et la Super classe Object
+         */
     @Override
     public String toString() {
-        return "ProduitAlimentaire{" +
+        return "produit.ProduitAlimentaire{" +
                 "idProduit=" + idProduit +
                 ", libelle='" + libelle + '\'' +
                 ", marque='" + marque + '\'' +

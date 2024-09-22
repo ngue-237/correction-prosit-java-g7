@@ -1,14 +1,18 @@
+import magasin.Magasin;
+import produit.ProduitAlimentaire;
+
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
         ProduitAlimentaire p0 = new ProduitAlimentaire(); // instanciation d'un objet vide à l'aide du constructeur non-paramétré
         //affectation des valeurs aux différents attributs de l'objet p0
-        p0.idProduit = 123;
-        p0.libelle = "Ordinateur";
-        p0.marque = "Lenovo";
-        p0.prix = 250_000;
-        p0.dateExpiration= new Date("12/09/2024");
+        p0.setIdProduit(123);
+        p0.setLibelle("Ordinateur");
+        p0.setMarque("Lenovo");
+        p0.setPrix(250_000);
+        p0.setDateExpiration(new Date("12/09/2024"));
+
         System.out.println("Produit p0");
         //affichage des détails d'un objet à l'aide de la méthode afficher créer manuellement
         //p0.afficher();
@@ -20,27 +24,38 @@ public class Main {
         System.out.println("Produit p1");
         //p1.afficher();
         System.out.println("Produit p1 après affectation du prix");
-        p1.prix = 0.7;
-        p1.dateExpiration= new Date("12/10/2024");
+        p1.setPrix(0.7);
+        p1.setDateExpiration(new Date("12/10/2024"));
         //p1.afficher();
         System.out.println("Affichage avec la méthode toString");
         System.out.println(p1);
 
         //création ou instanciation d'un objet p2 avec le constructeur paramétré à 3 paramètres
         ProduitAlimentaire p2 = new ProduitAlimentaire(2510, "Yaourt","Vitalait");
-        p2.prix = 250;
-        p2.dateExpiration= new Date("12/11/2024");
+        p2.setPrix(250);
+        p2.setDateExpiration(new Date("12/11/2024"));
         System.out.println("Produit p2");
         //p2.afficher();
         System.out.println("Affichage avec la méthode toString");
         System.out.println(p2);
         //création ou instanciation d'un objet p3 avec le constructeur paramétré à 4 paramètres
         ProduitAlimentaire p3 = new ProduitAlimentaire(3250,"Tomate", "Sicam",1.2);
-        p3.dateExpiration= new Date("12/12/2024");
+        p3.setDateExpiration(new Date("12/12/2024"));
         System.out.println("Produit p3");
         //p3.afficher();
         System.out.println("Affichage avec la méthode toString");
         System.out.println(p3);
+
+        Magasin magasin1 = new Magasin(1,"TotalEnergie Nsimeyong");
+
+        magasin1.ajouterProduit(p0);
+        magasin1.ajouterProduit(p1);
+        magasin1.ajouterProduit(p2);
+        magasin1.ajouterProduit(p3);
+
+        magasin1.afficherMagasin();
+
+        System.out.println("Nombre total produit : " +magasin1.getNbProduits());
 
 
     }
