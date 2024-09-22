@@ -1,8 +1,60 @@
+import java.util.Calendar;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
+        //PROSITE I
+
+        //1-creation du produit vide P0
+        Produit P0 = new Produit() ;
+        P0.setIdProduit(2810); P0.setLibelle("Chocolat"); P0.setMarque("Wity"); P0.setPrix(2.500);
+        P0.afficher();
+
+        //2-creation des nouveaux produits
+        Produit P1 = new Produit(1021 , "Lait" , "Delice") ;
+        P1.setPrix(0.7);
+        P1.afficher();
+
+        Produit P2 = new Produit(2510 , "Yaourt" , " Vitalait") ;
+        P2.setPrix(500);
+        P2.afficher();
+
+        Produit P3 = new Produit(3250 , "Tomate" , "Sicam" , 1.200);
+        P3.afficher();
+
+        //7-affichage des produits deja crees a l'aide de la methode toString()
+
+        System.out.println(P0) ;
+        System.out.println(P1) ;
+        System.out.println(P2) ;
+        System.out.println(P3) ;
+        /*REMARQUE:  Lors de l'exécution du programme, les attributs du produit s'écriveent de
+                     manière successive par concatenaton contrairement à la methode afficher()
+                     où chaque attribut est sur une ligne différente.*/
+
+
+        //8-affectation des dates aux produits existants
+        //CREATION ET AFFECTAION DES DATES
+        System.out.println("Dates");
+        Calendar calendar = Calendar.getInstance() ;
+        calendar.set(2025 , 01 , 15 , 00 , 00);
+        P0.dateExpiration = calendar.getTime(); ;
+        P0.affichera();
+
+        calendar.set(2025 , 05 , 20 , 23 , 59);
+        P1.dateExpiration = calendar.getTime() ;
+        P1.affichera();
+
+        calendar.set(2025 , 11 , 23 ,15 , 30);
+        P2.dateExpiration = calendar.getTime() ;
+        P2.affichera();
+
+        calendar.set(2026 , 12 , 31 , 23 , 59);
+
+        P3.dateExpiration = calendar.getTime() ;
+        P3.affichera();
 
     }
 }
