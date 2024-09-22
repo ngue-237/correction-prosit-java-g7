@@ -1,3 +1,6 @@
+import com.logonedigital.gestionmagasin.Magasins.Magasin;
+import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
+
 import java.util.Calendar;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -52,9 +55,18 @@ public class Main {
         P2.afficher();
 
         calendar.set(2026 , 12 , 31 , 23 , 59);
-
         P3.getDateExpiration(calendar.getTime())   ;
         P3.afficher();
+        Magasin magasin1 = new Magasin(1 , "Total Energie Nsimeyong") ;
+
+        magasin1.ajouterProduit(P0);
+        magasin1.ajouterProduit(P1);
+        magasin1.ajouterProduit(P2);
+        magasin1.ajouterProduit(P3);
+
+        magasin1.afficherMagasin();
+
+        System.out.println("Nombre total de produits : " + magasin1.getNbProduits());
 
     }
 }

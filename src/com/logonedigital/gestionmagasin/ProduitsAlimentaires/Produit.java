@@ -1,3 +1,5 @@
+package com.logonedigital.gestionmagasin.ProduitsAlimentaires;
+
 import java.util.Date;
 
 public class Produit {
@@ -29,7 +31,7 @@ public class Produit {
 
     //3-creation de la methode afficher()
     public void afficher(){
-        System.out.println("ID du oroduit: " + this.idProduit);
+        System.out.println("ID du produit: " + this.idProduit);
         System.out.println("Libelle : "+ this.libelle);
         System.out.println("Marque : " + this.marque);
         System.out.println("Prix : " + this.prix);

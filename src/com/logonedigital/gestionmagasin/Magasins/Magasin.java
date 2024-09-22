@@ -1,3 +1,7 @@
+package com.logonedigital.gestionmagasin.Magasins;
+
+import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
+
 public class Magasin {
     private int idMagasin ;
     private String adresse;
