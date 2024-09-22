@@ -40,21 +40,21 @@ public class Main {
         System.out.println("Dates");
         Calendar calendar = Calendar.getInstance() ;
         calendar.set(2025 , 01 , 15 , 00 , 00);
-        P0.dateExpiration = calendar.getTime(); ;
-        P0.affichera();
+        P0.getDateExpiration( calendar.getTime()) ; ;
+        P0.afficher();
 
         calendar.set(2025 , 05 , 20 , 23 , 59);
-        P1.dateExpiration = calendar.getTime() ;
-        P1.affichera();
+        P1.getDateExpiration(calendar.getTime())  ;
+        P1.afficher();
 
         calendar.set(2025 , 11 , 23 ,15 , 30);
-        P2.dateExpiration = calendar.getTime() ;
-        P2.affichera();
+        P2.getDateExpiration(calendar.getTime()) ;
+        P2.afficher();
 
         calendar.set(2026 , 12 , 31 , 23 , 59);
 
-        P3.dateExpiration = calendar.getTime() ;
-        P3.affichera();
+        P3.getDateExpiration(calendar.getTime())   ;
+        P3.afficher();
 
     }
 }

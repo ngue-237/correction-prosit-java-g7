@@ -1,11 +1,11 @@
 import java.util.Date;
 
 public class Produit {
-    protected int idProduit ;
-    protected String libelle ;
-    protected String marque ;
-    protected double prix ;
-    protected Date dateExpiration ;
+    private int idProduit ;
+    private String libelle ;
+    private String marque ;
+    private double prix ;
+    private Date dateExpiration ;
 
     //CREATION DES CONSTRUICTEURS
 
@@ -43,7 +43,7 @@ public class Produit {
         this.idProduit = idProduit;
     }
 
-    public String getLibelle(String next) {
+    public String getLibelle() {
         return libelle;
     }
 
@@ -59,37 +59,32 @@ public class Produit {
         this.marque = marque;
     }
 
-    public double getPrix(double prix) {
+    public double getPrix() {
         return this.prix;
     }
 
     public void setPrix(double prix) {
-        this.prix = prix;
+        if (prix>0)
+            this.prix = prix;
+        else
+            System.out.println("Entrez une valeur positive");
+    }
+
+    public Date getDateExpiration(Date time){
+        return dateExpiration ;
+    }
+
+    public void setDateExpiration(){
+        this.dateExpiration = dateExpiration ;
     }
 
     //7-creation de la methode toString()
     public String toString() {
-        return "ID " + this.idProduit +
-                " Libelle " + this.libelle +
-                " Marque " + this.marque +
-                " Prix " + this.prix ;
+        return "ID produit = " + this.idProduit +
+                ", libelle = " + this.libelle +
+                ", marque = " + this.marque +
+                ", prix = " + this.prix ;
     }
 
-    //8-creation du constructeur paramétré et de la methode contenants l'attribut dateExpiration
-    public Produit(int id , String libelle , String marque , double prix , Date dateExpiration){
-        this.idProduit = id ;
-        this.libelle = libelle ;
-        this.marque = marque ;
-        this.prix = prix ;
-        this.dateExpiration = dateExpiration ;
-    }
-
-    public void affichera(){
-        System.out.println("ID : " + this.idProduit);
-        System.out.println("Libelle : "+ this.libelle);
-        System.out.println("Marque : " + this.marque);
-        System.out.println("Prix : " + this.prix);
-        System.out.println("Date Expiration : " + this.dateExpiration);
-    }
 
 }
