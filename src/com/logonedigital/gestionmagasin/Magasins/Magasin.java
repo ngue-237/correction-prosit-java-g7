@@ -65,7 +65,7 @@ public class Magasin {
     public void ajouterProduit(Produit produitA) {
         if (this.nbProduits < this.capaciteMagasin) {
             for (int i = 0; i < nbProduits; i++){
-                if (produitA == produitAlimentaire[this.nbProduits]) {
+                if (produitA.equals(produitAlimentaire[this.nbProduits])) {
                     System.out.println("Ce produit Alimentaire existe déjà!");
                 } else {
                     this.produitAlimentaire[this.nbProduits] = produitA ;
