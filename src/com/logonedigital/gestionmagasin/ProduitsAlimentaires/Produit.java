@@ -38,7 +38,7 @@ public class Produit {
     }
 
     //4-creation des getter et setter
-    public int getId(int i) {
+    public int getIdProduit() {
         return this.idProduit ;
     }
     public void setIdProduit(int idProduit) {
@@ -53,7 +53,7 @@ public class Produit {
         this.libelle = libelle;
     }
 
-    public String getMarque(String next) {
+    public String getMarque() {
         return marque;
     }
 
@@ -87,6 +87,36 @@ public class Produit {
                 ", marque = " + this.marque +
                 ", prix = " + this.prix ;
     }
+
+    public boolean comparer1(Produit P) {
+        if (this.idProduit == P.idProduit) {
+            return true;
+        }
+        if (P.getLibelle().equals(this.getLibelle())) {
+            return true ;
+        }
+        if (this.prix == P.prix) {
+            return true ;
+        }
+
+        return false;
+    }
+
+    public boolean comparer2(Produit P1, Produit P2) {
+        if (P1.idProduit == P2.idProduit) {
+            return true;
+        }
+        if (P1.getLibelle().equals(P2.getLibelle())) {
+            return true ;
+        }
+        if (P1.prix == P2.prix) {
+            return true ;
+        }
+
+
+        return false;
+    }
+
 
 
 }

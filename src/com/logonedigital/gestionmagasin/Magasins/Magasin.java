@@ -2,6 +2,9 @@ package com.logonedigital.gestionmagasin.Magasins;
 
 import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Magasin {
     private int idMagasin ;
     private String adresse;
@@ -62,16 +65,16 @@ public class Magasin {
         this.nbProduits = nbProduits;
     }
 
+
     public void ajouterProduit(Produit produitA) {
         if (this.nbProduits < this.capaciteMagasin) {
-            for (int i = 0; i < nbProduits; i++){
-                if (produitA.equals(produitAlimentaire[this.nbProduits])) {
+            if (Arrays.asList(produitAlimentaire).contains(produitA)){
                     System.out.println("Ce produit Alimentaire existe déjà!");
-                } else {
-                    this.produitAlimentaire[this.nbProduits] = produitA ;
-                    this.nbProduits++ ;
-                }
+            } else {
+                this.produitAlimentaire[this.nbProduits] = produitA ;
+                this.nbProduits++ ;
             }
+
         } else {
             System.out.println("Vous avez atteint les limites de stockage");
         }
@@ -85,7 +88,25 @@ public class Magasin {
             System.out.print("Nom du produit : " + this.produitAlimentaire[i].getLibelle());
             System.out.println(" , Prix du produit : " + this.produitAlimentaire[i].getPrix() );
         }
+
     }
 
+
+
+
+    public void chercher(Produit P) {
+        for (int i = 0; i < this.getNbProduits(); i++) {
+            if (Arrays.asList(produitAlimentaire).contains(P)){
+                System.out.println("Produit trouvé");
+            } else {
+                System.out.println("Produit non trouvé");
+            }
+        }
+    }
+
+    public void supprimer() {
+
+
+    }
 
 }

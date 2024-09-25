@@ -67,6 +67,7 @@ public class Main {
         magasin1.afficherMagasin();
 
         System.out.println("Nombre total de produits : " + magasin1.getNbProduits());
+        P1.comparer1(P2);
 
     }
 }
