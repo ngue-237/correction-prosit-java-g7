@@ -64,10 +64,30 @@ public class Main {
         magasin1.ajouterProduit(P2);
         magasin1.ajouterProduit(P3);
 
+        System.out.println("Afficher magasin");
         magasin1.afficherMagasin();
 
         System.out.println("Nombre total de produits : " + magasin1.getNbProduits());
-        P1.comparer1(P2);
+
+        System.out.println("comparer produits");
+        if (P1.comparer1(P2)) {
+            System.out.println("Ils sont égaux");
+        } else {
+            System.out.println("Ils ne sont pas égaux");
+        }
+
+        if (magasin1.comparer2(P0 , P2)) {
+            System.out.println("Ils sont égaux");
+        } else {
+            System.out.println("Ils ne sont pas égaux");
+        }
+
+        System.out.println("*Recherche du produit P1*");
+        magasin1.chercher(P1);
+        System.out.println("*Suppression du produit P2*");
+        magasin1.supprimer(P2);
+        magasin1.afficherMagasin();
+
 
     }
 }

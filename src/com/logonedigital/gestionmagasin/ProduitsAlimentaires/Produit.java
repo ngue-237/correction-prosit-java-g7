@@ -85,7 +85,7 @@ public class Produit {
         return "ID produit = " + this.idProduit +
                 ", libelle = " + this.libelle +
                 ", marque = " + this.marque +
-                ", prix = " + this.prix ;
+                 ", prix = " + this.prix ;
     }
 
     public boolean comparer1(Produit P) {
@@ -101,22 +101,5 @@ public class Produit {
 
         return false;
     }
-
-    public boolean comparer2(Produit P1, Produit P2) {
-        if (P1.idProduit == P2.idProduit) {
-            return true;
-        }
-        if (P1.getLibelle().equals(P2.getLibelle())) {
-            return true ;
-        }
-        if (P1.prix == P2.prix) {
-            return true ;
-        }
-
-
-        return false;
-    }
-
-
 
 }

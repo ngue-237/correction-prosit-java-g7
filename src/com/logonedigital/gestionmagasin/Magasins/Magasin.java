@@ -24,6 +24,9 @@ public class Magasin {
         this.nbProduits = 0 ;
         this.produitAlimentaire = new Produit[this.capaciteMagasin] ;
     }
+    public Magasin ( Produit[] produitAlimentaire ){
+        this.produitAlimentaire = produitAlimentaire ;
+    }
 
     public int getIdMagasin() {
         return idMagasin;
@@ -92,21 +95,45 @@ public class Magasin {
     }
 
 
+    public Boolean comparer2(Produit P1, Produit P2) {
+        if (P1.getIdProduit() == P2.getIdProduit()){
+            return true ;
+
+        }
+        if ( P1.getLibelle().equals(P2.getLibelle()) ) {
+            return true ;
+        }
+        if (P1.getPrix() == P2.getPrix() ) {
+            return true ;
+        }
+
+        return false;
+    }
 
 
     public void chercher(Produit P) {
-        for (int i = 0; i < this.getNbProduits(); i++) {
-            if (Arrays.asList(produitAlimentaire).contains(P)){
-                System.out.println("Produit trouvé");
-            } else {
-                System.out.println("Produit non trouvé");
-            }
+        if (Arrays.asList(produitAlimentaire).contains(P)){
+            System.out.println("True");
+        } else {
+            System.out.println("False");
         }
+
     }
 
-    public void supprimer() {
-
-
+    public void supprimer(Produit Ps) {
+        if (Arrays.asList(produitAlimentaire).contains(Ps)){
+            for (int i = 0; i < this.nbProduits; i++) {
+                if (produitAlimentaire[i].equals(Ps)) {
+                    for (int s = i; s < this.nbProduits; s++){
+                        produitAlimentaire[s] = produitAlimentaire[s +1] ;
+                        this.nbProduits--;
+                        System.out.println("Produit alimentaire supprimer avec succès !");
+                    }
+                }
+            }
+        } else {
+                System.out.println("Produit alimentaire non trouvé");
+        }
     }
 
 }
