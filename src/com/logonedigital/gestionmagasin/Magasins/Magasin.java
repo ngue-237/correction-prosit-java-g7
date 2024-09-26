@@ -1,5 +1,6 @@
 package com.logonedigital.gestionmagasin.Magasins;
 
+import com.logonedigital.gestionmagasin.Employes.Employes;
 import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
 
 import java.lang.reflect.Array;
@@ -11,6 +12,8 @@ public class Magasin {
     private int capaciteMagasin ;
     private Produit[] produitAlimentaire ;
     private int nbProduits ;
+    private Employes[] employes ;
+
 
     public Magasin() {
         this.capaciteMagasin = 50 ;
@@ -24,8 +27,8 @@ public class Magasin {
         this.nbProduits = 0 ;
         this.produitAlimentaire = new Produit[this.capaciteMagasin] ;
     }
-    public Magasin ( Produit[] produitAlimentaire ){
-        this.produitAlimentaire = produitAlimentaire ;
+    public Magasin (String Ad) {
+        this.adresse = Ad  ;
     }
 
     public int getIdMagasin() {
@@ -68,6 +71,13 @@ public class Magasin {
         this.nbProduits = nbProduits;
     }
 
+    public Employes[] getEmployes() {
+        return employes;
+    }
+
+    public void setEmployes(Employes[] employes) {
+        this.employes = employes;
+    }
 
     public void ajouterProduit(Produit produitA) {
         if (this.nbProduits < this.capaciteMagasin) {

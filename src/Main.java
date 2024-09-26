@@ -69,13 +69,18 @@ public class Main {
 
         System.out.println("Nombre total de produits : " + magasin1.getNbProduits());
 
-        System.out.println("comparer produits");
+
+        //PROSITE III
+
+        System.out.println("*Comparaison de deux produits*");
+        System.out.println("methode a");
         if (P1.comparer1(P2)) {
             System.out.println("Ils sont égaux");
         } else {
             System.out.println("Ils ne sont pas égaux");
         }
 
+        System.out.println("Metode b");
         if (magasin1.comparer2(P0 , P2)) {
             System.out.println("Ils sont égaux");
         } else {
@@ -88,8 +93,15 @@ public class Main {
         magasin1.supprimer(P2);
         magasin1.afficherMagasin();
 
+        System.out.println("*Magasin ayant un nombre supérieur de produits*");
         Magasin magasin2 = new Magasin(2, "azerty" ) ;
         magasin1.RetourSur(magasin2);
+
+
+        //PROSITE IV
+
+        Magasin Carrefour = new Magasin("Centre-Ville") ;
+        Magasin SantaLucia = new Magasin("Nkoabang") ;
 
     }
 }
