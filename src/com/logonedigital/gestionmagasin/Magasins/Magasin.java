@@ -136,4 +136,14 @@ public class Magasin {
         }
     }
 
+    public  void RetourSur(Magasin mag ) {
+        if ( mag.getNbProduits() > this.getNbProduits()){
+            System.out.println("Le magasin ayant le plus grand nombre de produits est : " + mag);
+        } else if (mag.getNbProduits() < this.getNbProduits()) {
+            System.out.println("Le magasin ayant le plus grand nombre de produits est : " + this);
+        } else {
+            System.out.println("Ces deux magasins ont un nombre de produits identique");
+        }
+    }
+
 }

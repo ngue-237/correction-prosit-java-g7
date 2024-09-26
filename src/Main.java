@@ -88,6 +88,8 @@ public class Main {
         magasin1.supprimer(P2);
         magasin1.afficherMagasin();
 
+        Magasin magasin2 = new Magasin(2, "azerty" ) ;
+        magasin1.RetourSur(magasin2);
 
     }
 }
