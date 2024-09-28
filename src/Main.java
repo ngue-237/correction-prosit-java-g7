@@ -140,12 +140,12 @@ public class Main {
          //Remarque : chaque enployé vient avec un attribut qui lui est propre
 
         //ajout de produits
-        Produit produit1 = new Produit(452 , "piment doux" , "Roma");
-        Produit produit2 = new Produit(512 , "mais doux" , "Soleil");
-        Produit produit3 = new Produit(566 , "Mayonnaise" , "Roma");
-        Produit produitA = new Produit(565 , "huile d'arrachide" , "Mayor");
-        Produit produitB = new Produit(859 , "sardine" , "Le vieux");
-        Produit produitC = new Produit(565 , "beurre" , "   President");
+        Produit produit1 = new Produit(452 , "piment doux" , "Roma" , 1000);
+        Produit produit2 = new Produit(512 , "mais doux" , "Soleil", 1000);
+        Produit produit3 = new Produit(566 , "Mayonnaise" , "Roma" , 750);
+        Produit produitA = new Produit(565 , "huile d'arrachide" , "Mayor" , 1500);
+        Produit produitB = new Produit(859 , "sardine" , "Le vieux", 400);
+        Produit produitC = new Produit(565 , "beurre" , "   President" , 1250);
         Carrefour.ajouterProduit(produit1); Carrefour.ajouterProduit(produit2); Carrefour.ajouterProduit(produit3);
         SantaLucia.ajouterProduit(produitA); SantaLucia.ajouterProduit(produitB); SantaLucia.ajouterProduit(produitC);
 
