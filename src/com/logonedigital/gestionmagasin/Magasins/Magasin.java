@@ -3,7 +3,6 @@ package com.logonedigital.gestionmagasin.Magasins;
 import com.logonedigital.gestionmagasin.Employes.Employes;
 import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Magasin {
@@ -13,11 +12,13 @@ public class Magasin {
     private Produit[] produitAlimentaire ;
     private int nbProduits ;
     private Employes[] employes ;
+    private int nbEmployes ;
 
 
     public Magasin() {
         this.capaciteMagasin = 50 ;
         this.nbProduits = 0 ;
+        this.nbEmployes = 0 ;
     }
 
     public Magasin(int idM , String ad) {
@@ -25,11 +26,11 @@ public class Magasin {
         this.adresse = ad ;
         this.capaciteMagasin = 50 ;
         this.nbProduits = 0 ;
+        this.nbEmployes = 0 ;
         this.produitAlimentaire = new Produit[this.capaciteMagasin] ;
+        this.employes = new Employes[20] ;
     }
-    public Magasin (String Ad) {
-        this.adresse = Ad  ;
-    }
+
 
     public int getIdMagasin() {
         return idMagasin;
@@ -46,6 +47,7 @@ public class Magasin {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
+
 
     public int getCapaciteMagasin() {
         return capaciteMagasin;
@@ -71,6 +73,14 @@ public class Magasin {
         this.nbProduits = nbProduits;
     }
 
+    public int getNbEmplyes() {
+        return nbEmployes;
+    }
+
+    public void setNbEmplyes(int nbEmplyes) {
+        this.nbEmployes = nbEmplyes;
+    }
+
     public Employes[] getEmployes() {
         return employes;
     }
@@ -78,6 +88,7 @@ public class Magasin {
     public void setEmployes(Employes[] employes) {
         this.employes = employes;
     }
+
 
     public void ajouterProduit(Produit produitA) {
         if (this.nbProduits < this.capaciteMagasin) {
@@ -97,11 +108,16 @@ public class Magasin {
         System.out.println("Identifiant : " + this.idMagasin);
         System.out.println("Adresse : " + this.adresse);
         System.out.println("Capacité du magasin : " + this.capaciteMagasin);
+        System.out.println("Liste de produits");
         for (int i = 0; i  < nbProduits; i++) {
             System.out.print("Nom du produit : " + this.produitAlimentaire[i].getLibelle());
             System.out.println(" , Prix du produit : " + this.produitAlimentaire[i].getPrix() );
         }
-
+        System.out.println("Liste des employers");
+        for (int i = 0; i < nbEmployes; i++){
+            System.out.print("Id employé : " + this.employes[i].getIdEmploye());
+            System.out.println(" , Nom employé : " + this.employes[i].getNomEmploye());
+        }
     }
 
 
@@ -146,7 +162,7 @@ public class Magasin {
         }
     }
 
-    public  void RetourSur(Magasin mag ) {
+    public  void RetourSup(Magasin mag ) {
         if ( mag.getNbProduits() > this.getNbProduits()){
             System.out.println("Le magasin ayant le plus grand nombre de produits est : " + mag);
         } else if (mag.getNbProduits() < this.getNbProduits()) {
@@ -156,4 +172,17 @@ public class Magasin {
         }
     }
 
+
+    //PROSITE IV
+    public void ajouterEmployes(Employes employe){
+        if (this.nbEmployes < 20) {
+            this.employes[this.nbEmployes] = employe ;
+            this.nbEmployes++;
+        } else {
+            System.out.println("Ce magasin a atteint le limite d'employés !");
+        }
+    }
+
 }
+
+

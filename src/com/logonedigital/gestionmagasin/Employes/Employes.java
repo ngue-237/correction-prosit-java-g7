@@ -1,10 +1,10 @@
 package com.logonedigital.gestionmagasin.Employes;
 
 public class Employes {
-    private String idEmploye ;
-    private String nomEmploye;
-    private String adresseEmploye;
-    private int nbHeures;
+    protected String idEmploye ;
+    protected String nomEmploye;
+    protected String adresseEmploye;
+    protected int nbHeuresParMois;
 
 
     public Employes() {
@@ -14,7 +14,7 @@ public class Employes {
         this.idEmploye = idE ;
         this.nomEmploye = nomE ;
         this.adresseEmploye = adE ;
-        this.nbHeures = nbHeures ;
+        this.nbHeuresParMois = nbHeures ;
     }
 
     public String getIdEmploye() {
@@ -41,11 +41,17 @@ public class Employes {
         this.adresseEmploye = adresseEmploye;
     }
 
-    public int getNbHeures() {
-        return nbHeures;
+    public int getNbHeuresParMois() {
+        return nbHeuresParMois;
     }
 
     public void setNbHeures(int nbHeures) {
-        this.nbHeures = nbHeures;
+        this.nbHeuresParMois = nbHeures;
+    }
+    public void afficher() {
+        System.out.println( "ID employé : " + this.idEmploye);
+        System.out.println("Nom employé : " + this.nomEmploye);
+        System.out.println("Adresse employé : " + this.adresseEmploye);
+        System.out.println("Nombre d'heures par mois : " + this.nbHeuresParMois);
     }
 }

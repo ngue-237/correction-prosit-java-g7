@@ -1,3 +1,7 @@
+import com.logonedigital.gestionmagasin.Employes.Caissier;
+import com.logonedigital.gestionmagasin.Employes.Employes;
+import com.logonedigital.gestionmagasin.Employes.Responsable;
+import com.logonedigital.gestionmagasin.Employes.Vendeur;
 import com.logonedigital.gestionmagasin.Magasins.Magasin;
 import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
 
@@ -93,15 +97,99 @@ public class Main {
         magasin1.supprimer(P2);
         magasin1.afficherMagasin();
 
-        System.out.println("*Magasin ayant un nombre supérieur de produits*");
+        //System.out.println("*Magasin ayant un nombre supérieur de produits*");
         Magasin magasin2 = new Magasin(2, "azerty" ) ;
-        magasin1.RetourSur(magasin2);
+        magasin1.RetourSup(magasin2);
 
 
         //PROSITE IV
 
-        Magasin Carrefour = new Magasin("Centre-Ville") ;
-        Magasin SantaLucia = new Magasin("Nkoabang") ;
+        //creation des magasins
+        Magasin Carrefour = new Magasin(884985,"Centre-Ville") ;
+        Magasin SantaLucia = new Magasin(51451481,"Nkoabang") ;
+
+        //creation et ajout des employés
+        Caissier Caissier1 = new Caissier("124AO778" , "Maxine Karol" , "Nkomo" , 180 , 01 );
+        Caissier Caissier2 = new Caissier("124AO742" , "Ondoua Ulrich" , "Barrièrre" , 185 , 02);
+        Vendeur Vendeur1 = new Vendeur("254EF767", "Elise Zoa" , "Coron" , 180 , 10);
+        Responsable Responsable1 = new Responsable("466YT525" , "Astride Ngbwa" , "Nsimeyong" , 160 , 20);
+        Carrefour.ajouterEmployes(Caissier1); Carrefour.ajouterEmployes(Caissier2); Carrefour.ajouterEmployes(Vendeur1);
+        Carrefour.ajouterEmployes(Responsable1);
+        Carrefour.afficherMagasin();
+
+        Caissier CaissierA = new Caissier("569DG785" , "Realiana" , "Bastos" , 175 , 01);
+        Vendeur VendeurA= new Vendeur("523YJ457", "Axel" , "Nkoabang" , 190 , 15);
+        Vendeur VendeurB= new Vendeur("489FK754", "Lucie" , "Nkomo" ,175 , 20);
+        Vendeur VendeurC= new Vendeur("768SF887", "Marie" , "Ekounou" , 180 , 10);
+        Responsable ResponsableA = new Responsable("466YT525" , "Astride Ngbwa" , "Nsimeyong" , 160 , 20);
+        SantaLucia.ajouterEmployes(CaissierA);  SantaLucia.ajouterEmployes(VendeurA);  SantaLucia.ajouterEmployes(VendeurB);
+        SantaLucia.ajouterEmployes(VendeurC);  SantaLucia.ajouterEmployes(ResponsableA);
+
+        System.out.println("Caractéristiques des employés");
+        System.out.println("Employés de Carrefour");
+        Caissier1.afficher();
+        Caissier2.afficher();
+        Vendeur1.afficher();
+        Responsable1.afficher();
+        System.out.println("Employés de Santalucia");
+        CaissierA.afficher();
+        VendeurA.afficher();
+        VendeurB.afficher();
+        VendeurC.afficher();
+        ResponsableA.afficher();
+         //Remarque : chaque enployé vient avec un attribut qui lui est propre
+
+        //ajout de produits
+        Produit produit1 = new Produit(452 , "piment doux" , "Roma");
+        Produit produit2 = new Produit(512 , "mais doux" , "Soleil");
+        Produit produit3 = new Produit(566 , "Mayonnaise" , "Roma");
+        Produit produitA = new Produit(565 , "huile d'arrachide" , "Mayor");
+        Produit produitB = new Produit(859 , "sardine" , "Le vieux");
+        Produit produitC = new Produit(565 , "beurre" , "   President");
+        Carrefour.ajouterProduit(produit1); Carrefour.ajouterProduit(produit2); Carrefour.ajouterProduit(produit3);
+        SantaLucia.ajouterProduit(produitA); SantaLucia.ajouterProduit(produitB); SantaLucia.ajouterProduit(produitC);
+
+        System.out.println("Affichage des détails des magasins");
+        Carrefour.afficherMagasin();
+        SantaLucia.afficherMagasin();
+
+        System.out.println("affichage des salaires");
+        System.out.println("Carrefour");
+        System.out.println("Caissier 1");
+        Caissier1.calculerSalaire();
+        Caissier1.afficerSalaire();
+        System.out.println("Caissier 2");
+        Caissier2.calculerSalaire();
+        Caissier2.afficerSalaire();
+        System.out.println("Responsable 1");
+        Responsable1.calculerSalaire();
+        Responsable1.afficerSalaire();
+        System.out.println("Vendeur 1");
+        Vendeur1.calculerSalaire();
+        Vendeur1.afficerSalaire();
+
+        System.out.println("Santalucia");
+        System.out.println("Caissier A");
+        CaissierA.afficerSalaire();
+        CaissierA.afficerSalaire();
+        System.out.println("Responsable A");
+        ResponsableA.calculerSalaire();
+        ResponsableA.afficerSalaire();
+        System.out.println("Vendeur A");
+        VendeurA.calculerSalaire();
+        VendeurA.afficerSalaire();
+        System.out.println("Vendeur B");
+        VendeurB.calculerSalaire();
+        VendeurB.afficerSalaire();
+        System.out.println("Vendeur C");
+        VendeurC.calculerSalaire();
+        VendeurC.afficerSalaire();
+
+
+
+
+
+
 
     }
 }
