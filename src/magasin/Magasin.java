@@ -65,8 +65,13 @@ public class Magasin {
     public void ajouterProduit(ProduitAlimentaire produitA){
         if(this.nbProduits<this.capaciteMagasin)
         {
-            this.produitAlimentaire[this.nbProduits]=produitA;
-            this.nbProduits++;
+            boolean trouve = this.rechercherProduit(produitA);
+           if(!trouve){
+               this.produitAlimentaire[this.nbProduits]=produitA;
+               this.nbProduits++;
+           }else
+               System.out.println("Ce produit existe déjà");
+
         }else
             System.out.println("Vous avez atteint les limites de stockage");
     }
@@ -81,7 +86,24 @@ public class Magasin {
             System.out.println("Nom produit : "+this.produitAlimentaire[i].getLibelle());
             System.out.println("Prix produit : "+this.produitAlimentaire[i].getPrix());
         }
-
-
    }
+
+   private boolean rechercherProduit(ProduitAlimentaire p){
+        for(int i = 0; i<this.nbProduits; i++){
+            if(this.produitAlimentaire[i].comparer(p))
+                return true;
+        }
+       return false;
+   }
+
+   public Magasin comparerNbProduitMagasin(Magasin m1, Magasin m2){
+    /*
+        if(m1.nbProduits>m2.nbProduits)
+               return m1;
+     */
+
+        return (m1.nbProduits>m2.nbProduits)? m1 : m2;
+   }
+
+
 }

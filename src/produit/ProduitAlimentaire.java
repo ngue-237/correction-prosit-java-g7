@@ -118,4 +118,24 @@ public class ProduitAlimentaire {
                 ", dateExpiration=" + dateExpiration.toLocaleString() +
                 '}';
     }
+
+    public  boolean comparer(ProduitAlimentaire p){
+        if(this.idProduit == p.idProduit)
+            return true;
+        if(this.libelle.equals(p.libelle))
+            return true;
+        if(this.prix == p.prix)
+            return true;
+        return false;
+    }
+    public boolean comparer(ProduitAlimentaire p1, ProduitAlimentaire p2){
+        if(p1.idProduit == p2.idProduit)
+            return true;
+        if(p1.libelle.equals(p2.libelle))
+            return true;
+        if(p1.prix == p2.prix)
+            return true;
+
+        return false;
+    }
 }
