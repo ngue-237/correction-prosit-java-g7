@@ -2,6 +2,8 @@ package magasin;
 
 import produit.ProduitAlimentaire;
 
+import java.util.Arrays;
+
 public class Magasin {
     private int idMagasin;
     private String adresse;
@@ -96,7 +98,7 @@ public class Magasin {
        return false;
    }
 
-   public Magasin comparerNbProduitMagasin(Magasin m1, Magasin m2){
+   public static Magasin comparerNbProduitMagasin(Magasin m1, Magasin m2){
     /*
         if(m1.nbProduits>m2.nbProduits)
                return m1;
@@ -105,5 +107,14 @@ public class Magasin {
         return (m1.nbProduits>m2.nbProduits)? m1 : m2;
    }
 
-
+    @Override
+    public String toString() {
+        return "Magasin{" +
+                "idMagasin=" + idMagasin +
+                ", adresse='" + adresse + '\'' +
+                ", capaciteMagasin=" + capaciteMagasin +
+                ", produitAlimentaire=" + Arrays.toString(produitAlimentaire) +
+                ", nbProduits=" + nbProduits +
+                '}';
+    }
 }

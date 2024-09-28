@@ -53,7 +53,18 @@ public class Main {
         magasin1.ajouterProduit(p2);
         magasin1.ajouterProduit(p3);
 
+        //création ou instanciation d'un objet p4 avec le constructeur paramétré à 4 paramètres
+        ProduitAlimentaire p4 = new ProduitAlimentaire(3245,"Huile", "Mayor",1500);
+        p4.setDateExpiration(new Date("12/12/2024"));
+        magasin1.ajouterProduit(p4);
+
         magasin1.afficherMagasin();
+
+        Magasin magasin2 = new Magasin(2,"Mvog-Mbi");
+
+        System.out.println("Afficher Magasin avec nombre produits supérieur");
+
+        System.out.println(Magasin.comparerNbProduitMagasin(magasin1,magasin2));
 
         System.out.println("Nombre total produit : " +magasin1.getNbProduits());
 
