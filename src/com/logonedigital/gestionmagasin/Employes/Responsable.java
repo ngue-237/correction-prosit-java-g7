@@ -30,12 +30,16 @@ public class Responsable extends Employes {
     }
 
     public double calculerSalaire() {
-        double salaire = getNbHeuresParMois() * 2000 * prime;
+        double salaire ;
         if (getNbHeuresParMois() > 160) {
-            salaire += (getNbHeuresParMois() - 160) * 20000*0.2 ;
+            salaire = 160*2000 + prime + (getNbHeuresParMois() - 160) * 2400 ;
+            return salaire;
+        } else {
+            salaire = getNbHeuresParMois()*2000 + prime ;
+            return salaire;
         }
-        return salaire;
-}
+    }
+
     public void afficerSalaire() {
         System.out.println("Salaire : " + calculerSalaire());
     }

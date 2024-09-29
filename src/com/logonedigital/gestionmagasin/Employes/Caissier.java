@@ -30,12 +30,14 @@ public class Caissier extends Employes {
     }
 
     public double calculerSalaire() {
-        double salaire = getNbHeuresParMois()*1000 ;
+        double salaire ;
         if (getNbHeuresParMois() > 180) {
-            salaire += (getNbHeuresParMois() - 180) *1000*0.15 ;
-
+            salaire = 180*1000 + (getNbHeuresParMois() - 180) *1150 ;
+         return salaire;
+        } else {
+            salaire = getNbHeuresParMois()*1000;
+            return salaire;
         }
-        return salaire ;
     }
 
      public void afficerSalaire() {

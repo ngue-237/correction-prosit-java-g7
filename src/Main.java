@@ -92,7 +92,7 @@ public class Main {
         Caissier Caissier1 = new Caissier("124AO778" , "Maxine Karol" , "Nkomo" , 180 , 01 );
         Caissier Caissier2 = new Caissier("124AO742" , "Ondoua Ulrich" , "Barrièrre" , 185 , 02);
         Vendeur Vendeur1 = new Vendeur("254EF767", "Elise Zoa" , "Coron" , 180 , 10);
-        Responsable Responsable1 = new Responsable("466YT525" , "Astride Ngbwa" , "Nsimeyong" , 160 , 20);
+        Responsable Responsable1 = new Responsable("466YT525" , "Astride Ngbwa" , "Nsimeyong" , 160 , 2000);
         Carrefour.ajouterEmployes(Caissier1); Carrefour.ajouterEmployes(Caissier2); Carrefour.ajouterEmployes(Vendeur1);
         Carrefour.ajouterEmployes(Responsable1);
         Carrefour.afficherMagasin();
@@ -101,7 +101,7 @@ public class Main {
         Vendeur VendeurA= new Vendeur("523YJ457", "Axel" , "Nkoabang" , 190 , 15);
         Vendeur VendeurB= new Vendeur("489FK754", "Lucie" , "Nkomo" ,175 , 20);
         Vendeur VendeurC= new Vendeur("768SF887", "Marie" , "Ekounou" , 180 , 10);
-        Responsable ResponsableA = new Responsable("466YT525" , "Astride Ngbwa" , "Nsimeyong" , 160 , 20);
+        Responsable ResponsableA = new Responsable("466YT525" , "Astride Ngbwa" , "Nsimeyong" , 160 , 1500);
         SantaLucia.ajouterEmployes(CaissierA);  SantaLucia.ajouterEmployes(VendeurA);  SantaLucia.ajouterEmployes(VendeurB);
         SantaLucia.ajouterEmployes(VendeurC);  SantaLucia.ajouterEmployes(ResponsableA);
 

@@ -168,7 +168,6 @@ public class Magasin {
             System.out.println("Ce magasin a atteint le limite d'employés !");
         }
     }
-
 }
 
 
