@@ -30,7 +30,7 @@ public class Vendeur extends Employes {
     }
 
     public double calculerSalaire() {
-        return 810000* getTauxDeVente() / 100 ;
+        return 810000* this.tauxDeVente / 100 ;
     }
 
     public void afficerSalaire() {

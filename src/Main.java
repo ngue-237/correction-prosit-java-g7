@@ -6,6 +6,7 @@ import com.logonedigital.gestionmagasin.Magasins.Magasin;
 import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
 
 import java.util.Calendar;
+import java.util.Date;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -26,6 +27,7 @@ public class Main {
 
         Produit P2 = new Produit(2510 , "Yaourt" , " Vitalait") ;
         P2.setPrix(500);
+        P2.setDateExpiration(new Date("12/12/2024"));
         P2.afficher();
 
         Produit P3 = new Produit(3250 , "Tomate" , "Sicam" , 1.200);
@@ -47,7 +49,7 @@ public class Main {
         System.out.println("Dates");
         Calendar calendar = Calendar.getInstance() ;
         calendar.set(2025 , 01 , 15 , 00 , 00);
-        P0.getDateExpiration( calendar.getTime()) ;
+        P0.setDateExpiration( calendar.getTime()) ;
         P0.afficher();
 
         calendar.set(2025 , 05 , 20 , 23 , 59);
@@ -121,13 +123,13 @@ public class Main {
 
         //creation et ajout de produits
         Produit produit1 = new Produit(452 , "piment doux" , "Roma" , 1000);
-        Produit produit2 = new Produit(512 , "mais doux" , "Soleil", 1000);
-        Produit produit3 = new Produit(566 , "Mayonnaise" , "Roma" , 750);
+        Produit produit2 = new Produit(554 , "mais doux" , "Soleil", 1500);
+        Produit produit3 = new Produit(564 , "Mayonnaise" , "Roma" , 750);
         Carrefour.ajouterProduit(produit1); Carrefour.ajouterProduit(produit2); Carrefour.ajouterProduit(produit3);
 
         Produit produitA = new Produit(565 , "huile d'arrachide" , "Mayor" , 1500);
         Produit produitB = new Produit(859 , "sardine" , "Le vieux", 400);
-        Produit produitC = new Produit(565 , "beurre" , "   President" , 1250);
+        Produit produitC = new Produit(568 , "beurre" , "   President" , 1250);
         SantaLucia.ajouterProduit(produitA); SantaLucia.ajouterProduit(produitB); SantaLucia.ajouterProduit(produitC);
 
         System.out.println("Affichage des détails des magasins");
@@ -153,7 +155,7 @@ public class Main {
 
         System.out.println("Santalucia");
         System.out.println("Caissier A");
-        CaissierA.afficerSalaire();
+        CaissierA.calculerSalaire();
         CaissierA.afficerSalaire();
         System.out.println("Responsable A");
         ResponsableA.calculerSalaire();
@@ -167,12 +169,6 @@ public class Main {
         System.out.println("Vendeur C");
         VendeurC.calculerSalaire();
         VendeurC.afficerSalaire();
-
-
-
-
-
-
 
     }
 }

@@ -31,11 +31,11 @@ public class Responsable extends Employes {
 
     public double calculerSalaire() {
         double salaire ;
-        if (getNbHeuresParMois() > 160) {
-            salaire = 160*2000 + prime + (getNbHeuresParMois() - 160) * 2400 ;
+        if (this.nbHeuresParMois > 160) {
+            salaire = 160*2000 + prime + (this.nbHeuresParMois - 160) * 2400 ;
             return salaire;
         } else {
-            salaire = getNbHeuresParMois()*2000 + prime ;
+            salaire = this.nbHeuresParMois*2000 + prime ;
             return salaire;
         }
     }

@@ -31,11 +31,11 @@ public class Caissier extends Employes {
 
     public double calculerSalaire() {
         double salaire ;
-        if (getNbHeuresParMois() > 180) {
-            salaire = 180*1000 + (getNbHeuresParMois() - 180) *1150 ;
+        if (this.nbHeuresParMois > 180) {
+            salaire = 180*1000 + (this.nbHeuresParMois - 180) *1150 ;
          return salaire;
         } else {
-            salaire = getNbHeuresParMois()*1000;
+            salaire = this.getNbHeuresParMois()*1000;
             return salaire;
         }
     }

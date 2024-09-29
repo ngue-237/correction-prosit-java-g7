@@ -22,14 +22,6 @@ public class Produit {
         this.marque = marque ;
         this.prix = prix ;
     }
-
-    public Produit(int idProduit , String libelle , String marque , double prix, Date dateExpiration){
-        this.idProduit = idProduit ;
-        this.libelle = libelle ;
-        this.marque = marque ;
-        this.prix = prix ;
-        this.dateExpiration = dateExpiration ;
-    }
     //parametre à 3 parametres pour les produits P1 et P2
     public Produit(int idProduit , String libelle , String marque){
         this.idProduit = idProduit ;
@@ -43,6 +35,7 @@ public class Produit {
         System.out.println("Libelle : "+ this.libelle);
         System.out.println("Marque : " + this.marque);
         System.out.println("Prix : " + this.prix);
+        System.out.println("Date expiration: " + this.dateExpiration);
     }
 
 
@@ -85,8 +78,8 @@ public class Produit {
         return dateExpiration ;
     }
 
-    public void setDateExpiration(){
-        this.dateExpiration = dateExpiration ;
+    public void setDateExpiration(Date time){
+        this.dateExpiration = time ;
     }
 
     //7-creation de la methode toString()
