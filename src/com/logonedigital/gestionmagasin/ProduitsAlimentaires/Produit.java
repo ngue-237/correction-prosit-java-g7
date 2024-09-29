@@ -45,14 +45,6 @@ public class Produit {
         System.out.println("Prix : " + this.prix);
     }
 
-    public void affichera(){
-        System.out.println("ID du produit: " + this.idProduit);
-        System.out.println("Libelle : "+ this.libelle);
-        System.out.println("Marque : " + this.marque);
-        System.out.println("Prix : " + this.prix);
-        System.out.println("Date expiration : " + this.dateExpiration);
-    }
-
 
     //4-creation des getter et setter
     public int getIdProduit() {

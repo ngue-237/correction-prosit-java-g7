@@ -48,11 +48,11 @@ public class Main {
         Calendar calendar = Calendar.getInstance() ;
         calendar.set(2025 , 01 , 15 , 00 , 00);
         P0.getDateExpiration( calendar.getTime()) ;
-        P0.affichera();
+        P0.afficher();
 
         calendar.set(2025 , 05 , 20 , 23 , 59);
         P1.getDateExpiration(calendar.getTime())  ;
-        P1.affichera();
+        P1.afficher();
 
         calendar.set(2025 , 11 , 23 ,15 , 30);
         P2.getDateExpiration(calendar.getTime()) ;
@@ -60,7 +60,7 @@ public class Main {
 
         calendar.set(2026 , 12 , 31 , 23 , 59);
         P3.getDateExpiration(calendar.getTime())   ;
-        P3.affichera();
+        P3.afficher();
         Magasin magasin1 = new Magasin(1 , "Total Energie Nsimeyong") ;
 
         magasin1.ajouterProduit(P0);

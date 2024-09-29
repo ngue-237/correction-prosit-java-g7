@@ -52,7 +52,6 @@ public class Employes {
         System.out.println( "ID employé : " + this.idEmploye);
         System.out.println("Nom employé : " + this.nomEmploye);
         System.out.println("Adresse employé : " + this.adresseEmploye);
-        System.out.println("Nombre d'heures par mois : " + this.nbHeuresParMois);
+        System.out.println("Nombre d'heures par mois: " + this.nbHeuresParMois);
     }
-
 }
