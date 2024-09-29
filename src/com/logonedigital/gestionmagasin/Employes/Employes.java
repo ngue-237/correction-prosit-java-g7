@@ -54,4 +54,5 @@ public class Employes {
         System.out.println("Adresse employé : " + this.adresseEmploye);
         System.out.println("Nombre d'heures par mois : " + this.nbHeuresParMois);
     }
+
 }

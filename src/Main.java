@@ -47,12 +47,12 @@ public class Main {
         System.out.println("Dates");
         Calendar calendar = Calendar.getInstance() ;
         calendar.set(2025 , 01 , 15 , 00 , 00);
-        P0.getDateExpiration( calendar.getTime()) ; ;
-        P0.afficher();
+        P0.getDateExpiration( calendar.getTime()) ;
+        P0.affichera();
 
         calendar.set(2025 , 05 , 20 , 23 , 59);
         P1.getDateExpiration(calendar.getTime())  ;
-        P1.afficher();
+        P1.affichera();
 
         calendar.set(2025 , 11 , 23 ,15 , 30);
         P2.getDateExpiration(calendar.getTime()) ;
@@ -60,7 +60,7 @@ public class Main {
 
         calendar.set(2026 , 12 , 31 , 23 , 59);
         P3.getDateExpiration(calendar.getTime())   ;
-        P3.afficher();
+        P3.affichera();
         Magasin magasin1 = new Magasin(1 , "Total Energie Nsimeyong") ;
 
         magasin1.ajouterProduit(P0);
@@ -73,40 +73,20 @@ public class Main {
 
         System.out.println("Nombre total de produits : " + magasin1.getNbProduits());
 
-
-        //PROSITE III
-
-        System.out.println("*Comparaison de deux produits*");
-        System.out.println("methode a");
-        if (P1.comparer1(P2)) {
-            System.out.println("Ils sont égaux");
-        } else {
-            System.out.println("Ils ne sont pas égaux");
-        }
-
-        System.out.println("Metode b");
-        if (magasin1.comparer2(P0 , P2)) {
-            System.out.println("Ils sont égaux");
-        } else {
-            System.out.println("Ils ne sont pas égaux");
-        }
-
-        System.out.println("*Recherche du produit P1*");
-        magasin1.chercher(P1);
         System.out.println("*Suppression du produit P2*");
         magasin1.supprimer(P2);
         magasin1.afficherMagasin();
 
         //System.out.println("*Magasin ayant un nombre supérieur de produits*");
         Magasin magasin2 = new Magasin(2, "azerty" ) ;
-        magasin1.RetourSup(magasin2);
+        Magasin.comparerNbProduitMagasin(magasin1 , magasin2) ;
 
 
         //PROSITE IV
 
         //creation des magasins
-        Magasin Carrefour = new Magasin(884985,"Centre-Ville") ;
-        Magasin SantaLucia = new Magasin(51451481,"Nkoabang") ;
+        Magasin Carrefour = new Magasin(3,"Centre-Ville") ;
+        Magasin SantaLucia = new Magasin(4,"Nkoabang") ;
 
         //creation et ajout des employés
         Caissier Caissier1 = new Caissier("124AO778" , "Maxine Karol" , "Nkomo" , 180 , 01 );
@@ -139,18 +119,21 @@ public class Main {
         ResponsableA.afficher();
          //Remarque : chaque enployé vient avec un attribut qui lui est propre
 
-        //ajout de produits
+        //creation et ajout de produits
         Produit produit1 = new Produit(452 , "piment doux" , "Roma" , 1000);
         Produit produit2 = new Produit(512 , "mais doux" , "Soleil", 1000);
         Produit produit3 = new Produit(566 , "Mayonnaise" , "Roma" , 750);
+        Carrefour.ajouterProduit(produit1); Carrefour.ajouterProduit(produit2); Carrefour.ajouterProduit(produit3);
+
         Produit produitA = new Produit(565 , "huile d'arrachide" , "Mayor" , 1500);
         Produit produitB = new Produit(859 , "sardine" , "Le vieux", 400);
         Produit produitC = new Produit(565 , "beurre" , "   President" , 1250);
-        Carrefour.ajouterProduit(produit1); Carrefour.ajouterProduit(produit2); Carrefour.ajouterProduit(produit3);
         SantaLucia.ajouterProduit(produitA); SantaLucia.ajouterProduit(produitB); SantaLucia.ajouterProduit(produitC);
 
         System.out.println("Affichage des détails des magasins");
+        System.out.println("Détails du magasin carrefour");
         Carrefour.afficherMagasin();
+        System.out.println("Détails du magasin SantaLucia");
         SantaLucia.afficherMagasin();
 
         System.out.println("affichage des salaires");

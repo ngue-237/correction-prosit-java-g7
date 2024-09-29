@@ -16,11 +16,19 @@ public class Produit {
     }
 
     //2-parametre à 4 parametres pour le produit P3
-    public Produit(int id , String libelle , String marque , double prix){
+    public Produit(int idProduit , String libelle , String marque , double prix){
         this.idProduit = idProduit ;
         this.libelle = libelle ;
         this.marque = marque ;
         this.prix = prix ;
+    }
+
+    public Produit(int idProduit , String libelle , String marque , double prix, Date dateExpiration){
+        this.idProduit = idProduit ;
+        this.libelle = libelle ;
+        this.marque = marque ;
+        this.prix = prix ;
+        this.dateExpiration = dateExpiration ;
     }
     //parametre à 3 parametres pour les produits P1 et P2
     public Produit(int idProduit , String libelle , String marque){
@@ -36,6 +44,15 @@ public class Produit {
         System.out.println("Marque : " + this.marque);
         System.out.println("Prix : " + this.prix);
     }
+
+    public void affichera(){
+        System.out.println("ID du produit: " + this.idProduit);
+        System.out.println("Libelle : "+ this.libelle);
+        System.out.println("Marque : " + this.marque);
+        System.out.println("Prix : " + this.prix);
+        System.out.println("Date expiration : " + this.dateExpiration);
+    }
+
 
     //4-creation des getter et setter
     public int getIdProduit() {
@@ -81,14 +98,17 @@ public class Produit {
     }
 
     //7-creation de la methode toString()
+    @Override
     public String toString() {
-        return "ID produit = " + this.idProduit +
-                ", libelle = " + this.libelle +
-                ", marque = " + this.marque +
-                 ", prix = " + this.prix ;
+        return "Produit{" +
+                "idProduit=" + idProduit +
+                ", libelle='" + libelle + '\'' +
+                ", marque='" + marque + '\'' +
+                ", prix=" + prix +
+                '}';
     }
 
-    public boolean comparer1(Produit P) {
+    public boolean comparer(Produit P) {
         if (this.idProduit == P.idProduit) {
             return true;
         }
@@ -96,6 +116,20 @@ public class Produit {
             return true ;
         }
         if (this.prix == P.prix) {
+            return true ;
+        }
+
+        return false;
+    }
+
+    public  Boolean comparer(Produit p1 , Produit p2) {
+        if (p1.idProduit == p2.idProduit) {
+            return true;
+        }
+        if (p1.getLibelle().equals(p2.getLibelle())) {
+            return true ;
+        }
+        if (p1.prix == p2.prix) {
             return true ;
         }
 

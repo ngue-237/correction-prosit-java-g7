@@ -92,13 +92,12 @@ public class Magasin {
 
     public void ajouterProduit(Produit produitA) {
         if (this.nbProduits < this.capaciteMagasin) {
-            if (Arrays.asList(produitAlimentaire).contains(produitA)){
-                    System.out.println("Ce produit Alimentaire existe déjà!");
-            } else {
+            if (!this.rechercherProduit(produitA)) {
                 this.produitAlimentaire[this.nbProduits] = produitA ;
                 this.nbProduits++ ;
+            } else {
+                System.out.println("Ce produit Alimentaire existe déjà!");
             }
-
         } else {
             System.out.println("Vous avez atteint les limites de stockage");
         }
@@ -120,36 +119,19 @@ public class Magasin {
         }
     }
 
-
-    public Boolean comparer2(Produit P1, Produit P2) {
-        if (P1.getIdProduit() == P2.getIdProduit()){
-            return true ;
-
+    public boolean rechercherProduit(Produit P) {
+        for (int i = 0; i < this.nbProduits; i++ ) {
+            if (this.produitAlimentaire[i].comparer(P))
+                    return true;
         }
-        if ( P1.getLibelle().equals(P2.getLibelle()) ) {
-            return true ;
-        }
-        if (P1.getPrix() == P2.getPrix() ) {
-            return true ;
-        }
-
         return false;
-    }
-
-
-    public void chercher(Produit P) {
-        if (Arrays.asList(produitAlimentaire).contains(P)){
-            System.out.println("True");
-        } else {
-            System.out.println("False");
-        }
 
     }
 
     public void supprimer(Produit Ps) {
-        if (Arrays.asList(produitAlimentaire).contains(Ps)){
+        if (this.rechercherProduit(Ps)){
             for (int i = 0; i < this.nbProduits; i++) {
-                if (produitAlimentaire[i].equals(Ps)) {
+                if (produitAlimentaire[i].comparer(Ps)) {
                     for (int s = i; s < this.nbProduits; s++){
                         produitAlimentaire[s] = produitAlimentaire[s +1] ;
                         this.nbProduits--;
@@ -162,22 +144,26 @@ public class Magasin {
         }
     }
 
-    public  void RetourSup(Magasin mag ) {
-        if ( mag.getNbProduits() > this.getNbProduits()){
-            System.out.println("Le magasin ayant le plus grand nombre de produits est : " + mag);
-        } else if (mag.getNbProduits() < this.getNbProduits()) {
-            System.out.println("Le magasin ayant le plus grand nombre de produits est : " + this);
-        } else {
-            System.out.println("Ces deux magasins ont un nombre de produits identique");
-        }
+    public static Magasin comparerNbProduitMagasin(Magasin m1,Magasin m2) {
+        return (m1.nbProduits>m2.nbProduits)? m1 :m2 ;
     }
 
 
     //PROSITE IV
+    public boolean rechercherEmploye(Employes employe) {
+        for (int i = 0; i < this.nbEmployes; i++ ) {
+            if(employes[i] == employe)
+                return true;
+        }
+        return false;
+
+    }
     public void ajouterEmployes(Employes employe){
         if (this.nbEmployes < 20) {
-            this.employes[this.nbEmployes] = employe ;
-            this.nbEmployes++;
+            if (!this.rechercherEmploye(employe)){
+                this.employes[this.nbEmployes] = employe ;
+                this.nbEmployes++;
+            }
         } else {
             System.out.println("Ce magasin a atteint le limite d'employés !");
         }
