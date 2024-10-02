@@ -1,3 +1,5 @@
+import employe.Employe;
+import employe.Responsable;
 import magasin.Magasin;
 import produit.ProduitAlimentaire;
 
@@ -46,12 +48,15 @@ public class Main {
         System.out.println("Affichage avec la méthode toString");
         System.out.println(p3);
 
-        Magasin magasin1 = new Magasin(1,"TotalEnergie Nsimeyong");
+        Magasin magasin1 = new Magasin(1,"TotalEnergie Nsimeyong", "Carrefour");
 
         magasin1.ajouterProduit(p0);
         magasin1.ajouterProduit(p1);
         magasin1.ajouterProduit(p2);
         magasin1.ajouterProduit(p3);
+        Employe responsable = new Responsable(1,"Emma", "Nsimeyong", 200,10_000);
+        magasin1.ajouterEmploye(responsable);
+        System.out.println("Salaire responsable :" + ((Responsable) responsable).calculeSalaireResponsable());
 
         //création ou instanciation d'un objet p4 avec le constructeur paramétré à 4 paramètres
         ProduitAlimentaire p4 = new ProduitAlimentaire(3245,"Huile", "Mayor",1500);
@@ -60,7 +65,7 @@ public class Main {
 
         magasin1.afficherMagasin();
 
-        Magasin magasin2 = new Magasin(2,"Mvog-Mbi");
+        Magasin magasin2 = new Magasin(2,"Mvog-Mbi", "Santa Lucia");
 
         System.out.println("Afficher Magasin avec nombre produits supérieur");
 

@@ -1,27 +1,35 @@
 package magasin;
 
+import employe.Employe;
 import produit.ProduitAlimentaire;
 
 import java.util.Arrays;
 
 public class Magasin {
     private int idMagasin;
+    private String nomMagasin;
     private String adresse;
     private int capaciteMagasin;
     private ProduitAlimentaire[] produitAlimentaire;
+    private Employe[] employes;
+    private int nbEmployes;
     private int nbProduits;
 
     public Magasin(){
         this.capaciteMagasin = 50;
         this.nbProduits = 0;
+        this.nbEmployes = 0;
+        this.employes = new Employe[20];
     }
 
-    public Magasin(int idM, String ad){
+    public Magasin(int idM, String ad, String nomM){
         this.idMagasin = idM;
         this.adresse = ad;
+        this.nomMagasin = nomM;
         this.capaciteMagasin = 50;
         this.nbProduits = 0;
         this.produitAlimentaire = new ProduitAlimentaire[this.capaciteMagasin];
+        this.employes = new Employe[20];
     }
 
     public int getIdMagasin() {
@@ -76,6 +84,14 @@ public class Magasin {
 
         }else
             System.out.println("Vous avez atteint les limites de stockage");
+    }
+
+    public void ajouterEmploye(Employe employe){
+        if(this.nbEmployes<20){
+            this.employes[nbEmployes]=employe;
+            this.nbEmployes++;
+        }else
+            System.out.println("Vous avez atteint les limites des employés !");
     }
 
 
