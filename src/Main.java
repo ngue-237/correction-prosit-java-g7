@@ -1,3 +1,6 @@
+import Employe.Produit;
+import Employe.ProduitFruit;
+
 import java.util.Date;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -44,7 +47,50 @@ public class Main {
         System.out.println("Affichage avec la méthode toString");
         System.out.println(p3);
 
+        Magasin magasin1 = new Magasin(1,"TotalEnergie Nsimeyong");
+
+        magasin1.ajouterProduit(p0);
+        magasin1.ajouterProduit(p1);
+        magasin1.ajouterProduit(p2);
+        magasin1.ajouterProduit(p3);
+        Employe responsable = new Responsable(1,"Emma", "Nsimeyong", 200,10_000);
+        magasin1.ajouteremploye(responsable);
+        System.out.println("Salaire responsable :" + ((Responsable) responsable).calculeSalaireResponsable());
+
+        //création ou instanciation d'un objet p4 avec le constructeur paramétré à 4 paramètres
+        ProduitAlimentaire p4 = new ProduitAlimentaire(3245,"Huile", "Mayor",1500);
+        p4.setDateExpiration(new Date("12/12/2024"));
+        magasin1.ajouterProduit(p4);
+
+        magasin1.afficherMagasin();
+
+        Magasin magasin2 = new Magasin(2,"Mvog-Mbi");
+
+        System.out.println("Afficher Magasin avec nombre produits supérieur");
+
+        System.out.println(Magasin.comparerNbProduitMagasin(magasin1,magasin2));
+
+        System.out.println("Nombre total produit : " +magasin1.getNbProduit());
+
+
+        //Création des differents produits
+
+        Produit p1 = new ProduitFruit(1254, "Fruit", "Fraise", 12.3, "Mars");
+        Produit p2 = new ProduitFruit(1224, "Fruit", "Pastèque", 50, "Juin");
+        Produit p3 = new ProduitFruit(7896, "Fruit", "Mandarine", 25.6, "Decembre");
+        Produit p4 = new ProduitFruit(8521, "Legume", "Artichauts", 14, "Janvier");
+
+
+
+
+
+
 
     }
-
 }
+
+
+
+
+
+

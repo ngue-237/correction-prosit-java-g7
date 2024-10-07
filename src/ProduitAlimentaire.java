@@ -74,4 +74,34 @@ git init    Il est utilisé car la valeur de tous les paramètres est connues
                 '}';
 
     }
+   // Prosit 3 correction
+    public boolean comparer(ProduitAlimentaire P){
+        if(this.idProduit == p.idProduit)
+            return true;
+        if(this.libelle.equals(p.libelle))
+            return true;
+        if(this.prix == p.prix)
+            return true;
+        return false;
+    }
+    private boolean comparer(ProduitAlimentaire p1, ProduitAlimentaire p2){
+        if(p1.idProduit == p2.idProduit)
+            return true;
+        if(p1.libelle.equals(p2.libelle))
+            return true;
+        if(p1.prix == p2.prix)
+            return true;
+
+        return false;
+    }
 }
+
+
+
+
+
+
+
+
+
+
