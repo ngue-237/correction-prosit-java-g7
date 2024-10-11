@@ -1,17 +1,19 @@
 import com.logonedigital.gestionmagasin.Employes.Caissier;
-import com.logonedigital.gestionmagasin.Employes.Employes;
 import com.logonedigital.gestionmagasin.Employes.Responsable;
 import com.logonedigital.gestionmagasin.Employes.Vendeur;
 import com.logonedigital.gestionmagasin.Magasins.Magasin;
-import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
+import com.logonedigital.gestionmagasin.Magasins.MagasinPleinException;
+import com.logonedigital.gestionmagasin.ProduitsAlimentaires.*;
 
 import java.util.Calendar;
 import java.util.Date;
 
+import static com.logonedigital.gestionmagasin.Magasins.Magasin.comparerNbProduitMagasin;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MagasinPleinException {
 
         //PROSITE I
 
@@ -53,21 +55,23 @@ public class Main {
         P0.afficher();
 
         calendar.set(2025 , 05 , 20 , 23 , 59);
-        P1.getDateExpiration(calendar.getTime())  ;
+        P1.setDateExpiration(calendar.getTime())  ;
         P1.afficher();
 
         calendar.set(2025 , 11 , 23 ,15 , 30);
-        P2.getDateExpiration(calendar.getTime()) ;
+        P2.setDateExpiration(calendar.getTime()) ;
         P2.afficher();
 
         calendar.set(2026 , 12 , 31 , 23 , 59);
-        P3.getDateExpiration(calendar.getTime())   ;
+        P3.setDateExpiration(calendar.getTime())   ;
         P3.afficher();
-        Magasin magasin1 = new Magasin(1 , "Total Energie Nsimeyong") ;
+        Magasin magasin1 = new Magasin(1 , "Niki", "Total Energie Nsimeyong") ;
 
         magasin1.ajouterProduit(P0);
         magasin1.ajouterProduit(P1);
+        magasin1.afficherMagasin();
         magasin1.ajouterProduit(P2);
+        magasin1.afficherMagasin();
         magasin1.ajouterProduit(P3);
 
         System.out.println("Afficher magasin");
@@ -80,15 +84,15 @@ public class Main {
         magasin1.afficherMagasin();
 
         //System.out.println("*Magasin ayant un nombre supérieur de produits*");
-        Magasin magasin2 = new Magasin(2, "azerty" ) ;
-        Magasin.comparerNbProduitMagasin(magasin1 , magasin2) ;
+        Magasin magasin2 = new Magasin(2, "Mahima", "Coron" ) ;
+        comparerNbProduitMagasin(magasin1 , magasin2) ;
 
 
         //PROSITE IV
 
         //creation des magasins
-        Magasin Carrefour = new Magasin(3,"Centre-Ville") ;
-        Magasin SantaLucia = new Magasin(4,"Nkoabang") ;
+        Magasin Carrefour = new Magasin(3,"Carrefour","Centre-Ville") ;
+        Magasin SantaLucia = new Magasin(4,"SantaLucia","Nkoabang") ;
 
         //creation et ajout des employés
         Caissier Caissier1 = new Caissier("124AO778" , "Maxine Karol" , "Nkomo" , 180 , 01 );
@@ -152,7 +156,6 @@ public class Main {
         System.out.println("Vendeur 1");
         Vendeur1.calculerSalaire();
         Vendeur1.afficerSalaire();
-
         System.out.println("Santalucia");
         System.out.println("Caissier A");
         CaissierA.calculerSalaire();
@@ -169,6 +172,24 @@ public class Main {
         System.out.println("Vendeur C");
         VendeurC.calculerSalaire();
         VendeurC.afficerSalaire();
+
+        //CREATION DES PRODUITS
+        Produit p1 = new ProduitFruit(1254, "fruit", "Fraise", 12.3, "Mars");
+        Produit p2 = new ProduitFruit(1224, "fruit", "Pastèque", 50, "Juin");
+        Produit p3 = new ProduitFruit(7896, "fruit", "Mandarine", 25.6, "Décembre");
+        Produit p4 = new ProduitLegume(8521, "legume", "Artichauts", 14, "Janvier");
+
+        //AJOUT DES PRODUITS A UN MAGASIN
+        magasin2.ajouterProduit(p1);
+        magasin2.ajouterProduit(p2);
+        magasin2.ajouterProduit(p3);
+        magasin2.ajouterProduit(p4);
+        magasin2.afficherMagasin();
+        p1.determinerTypePoduit(p1);
+        System.out.println("**Determination du stock**");
+        System.out.println(magasin2.calculStock());
+
+
 
     }
 }

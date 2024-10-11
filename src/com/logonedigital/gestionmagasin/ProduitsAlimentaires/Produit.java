@@ -7,6 +7,10 @@ public class Produit {
     private String libelle ;
     private String marque ;
     private double prix ;
+    private String type ;
+    private double quantite ;
+    private String saison ;
+
     private Date dateExpiration ;
 
     //CREATION DES CONSTRUICTEURS
@@ -29,6 +33,14 @@ public class Produit {
         this.marque = marque ;
     }
 
+    public Produit(int idProduit, String type, String libelle, double quantite, String saison) {
+        this.idProduit = idProduit;
+        this.type = type;
+        this.libelle = libelle;
+        this.quantite = quantite;
+        this.saison = saison ;
+    }
+
     //3-creation de la methode afficher()
     public void afficher(){
         System.out.println("ID du produit: " + this.idProduit);
@@ -39,6 +51,7 @@ public class Produit {
     }
 
 
+
     //4-creation des getter et setter
     public int getIdProduit() {
         return this.idProduit ;
@@ -46,6 +59,8 @@ public class Produit {
     public void setIdProduit(int idProduit) {
         this.idProduit = idProduit;
     }
+
+
 
     public String getLibelle() {
         return libelle;
@@ -82,6 +97,28 @@ public class Produit {
         this.dateExpiration = time ;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public double getQuantite() {
+        return quantite;
+    }
+
+    public double setQuantite() {
+        this.quantite = quantite;
+        return quantite;
+    }
+    public String getSaison() {
+        return saison;
+    }
+    public  void setSaison(String saison) {
+        this.saison = saison;
+    }
     //7-creation de la methode toString()
     @Override
     public String toString() {
@@ -94,15 +131,10 @@ public class Produit {
     }
 
     public boolean comparer(Produit P) {
-        if (this.idProduit == P.idProduit) {
+        if (this.idProduit == P.idProduit)
+        if (P.getLibelle().equals(this.getLibelle()))
+        if (this.prix == P.prix)
             return true;
-        }
-        if (P.getLibelle().equals(this.getLibelle())) {
-            return true ;
-        }
-        if (this.prix == P.prix) {
-            return true ;
-        }
 
         return false;
     }
@@ -119,6 +151,15 @@ public class Produit {
         }
 
         return false;
+    }
+
+    public String determinerTypePoduit(Produit p) {
+        if (p instanceof ProduitFruit)
+            return "fruit" ;
+        else if (p instanceof ProduitLegume)
+            return "legume";
+        else
+            return "autre";
     }
 
 }

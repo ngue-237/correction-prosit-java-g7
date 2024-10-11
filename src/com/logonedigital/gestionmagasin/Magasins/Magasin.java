@@ -2,11 +2,11 @@ package com.logonedigital.gestionmagasin.Magasins;
 
 import com.logonedigital.gestionmagasin.Employes.Employes;
 import com.logonedigital.gestionmagasin.ProduitsAlimentaires.Produit;
-
-import java.util.Arrays;
+import com.logonedigital.gestionmagasin.ProduitsAlimentaires.ProduitsAgricoles;
 
 public class Magasin {
     private int idMagasin ;
+    private String nomMagasin ;
     private String adresse;
     private int capaciteMagasin ;
     private Produit[] produitAlimentaire ;
@@ -21,13 +21,14 @@ public class Magasin {
         this.nbEmployes = 0 ;
     }
 
-    public Magasin(int idM , String ad) {
+    public Magasin(int idM ,String nomMagasin, String ad) {
         this.idMagasin = idM ;
+        this.nomMagasin = nomMagasin ;
         this.adresse = ad ;
         this.capaciteMagasin = 50 ;
         this.nbProduits = 0 ;
         this.nbEmployes = 0 ;
-        this.produitAlimentaire = new Produit[this.capaciteMagasin] ;
+        this.produitAlimentaire = new Produit[2] ;
         this.employes = new Employes[20] ;
     }
 
@@ -38,6 +39,14 @@ public class Magasin {
 
     public void setIdMagasin(int idMagasin) {
         this.idMagasin = idMagasin;
+    }
+
+    public String getNomMagasin() {
+        return nomMagasin;
+    }
+
+    public void setNomMagasin(String nomMagasin) {
+        this.nomMagasin = nomMagasin;
     }
 
     public String getAdresse() {
@@ -89,22 +98,23 @@ public class Magasin {
         this.employes = employes;
     }
 
+    public void ajouterProduit(Produit produitA) throws MagasinPleinException{
+        if (this.nbProduits == 2)
+            throw new MagasinPleinException("Ce magasin est plein");
+        else {
 
-    public void ajouterProduit(Produit produitA) {
-        if (this.nbProduits < this.capaciteMagasin) {
             if (!this.rechercherProduit(produitA)) {
-                this.produitAlimentaire[this.nbProduits] = produitA ;
-                this.nbProduits++ ;
+                this.produitAlimentaire[this.nbProduits] = produitA;
+                this.nbProduits++;
             } else {
                 System.out.println("Ce produit Alimentaire existe déjà!");
             }
-        } else {
-            System.out.println("Vous avez atteint les limites de stockage");
         }
     }
 
     public void afficherMagasin() {
         System.out.println("Identifiant : " + this.idMagasin);
+        System.out.println("Nom du magasin : " + this.nomMagasin);
         System.out.println("Adresse : " + this.adresse);
         System.out.println("Capacité du magasin : " + this.capaciteMagasin);
         System.out.println("Liste de produits");
@@ -139,6 +149,7 @@ public class Magasin {
                     }
                 }
             }
+
         } else {
                 System.out.println("Produit alimentaire non trouvé");
         }
@@ -168,6 +179,18 @@ public class Magasin {
             System.out.println("Ce magasin a atteint le limite d'employés !");
         }
     }
+
+    public double calculStock() {
+        double quantiteTotale = 0;
+        for (int i = 0; i < nbProduits; i++) {
+            if (produitAlimentaire[i].determinerTypePoduit(produitAlimentaire[i]).equals("fruit"))
+                quantiteTotale += produitAlimentaire[i].getQuantite();
+        }
+        return quantiteTotale ;
+    }
+
+    //PROSITE 6
+    //3-Remarque : lors de l'execution du programme l'IDE releve une exception a propos de la taille du tableau
 }
 
 
