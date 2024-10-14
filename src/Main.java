@@ -3,6 +3,7 @@ import com.logonedigital.gestionmagasin.Employes.Responsable;
 import com.logonedigital.gestionmagasin.Employes.Vendeur;
 import com.logonedigital.gestionmagasin.Magasins.Magasin;
 import com.logonedigital.gestionmagasin.Magasins.MagasinPleinException;
+import com.logonedigital.gestionmagasin.Magasins.PrixNegatifException;
 import com.logonedigital.gestionmagasin.ProduitsAlimentaires.*;
 
 import java.util.Calendar;
@@ -13,7 +14,7 @@ import static com.logonedigital.gestionmagasin.Magasins.Magasin.comparerNbProdui
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) throws MagasinPleinException {
+    public static void main(String[] args) throws MagasinPleinException, PrixNegatifException {
 
         //PROSITE I
 
@@ -69,18 +70,16 @@ public class Main {
 
         magasin1.ajouterProduit(P0);
         magasin1.ajouterProduit(P1);
-        magasin1.afficherMagasin();
-        magasin1.ajouterProduit(P2);
-        magasin1.afficherMagasin();
-        magasin1.ajouterProduit(P3);
+     //   magasin1.ajouterProduit(P2)
+     //   magasin1.ajouterProduit(P3);
 
         System.out.println("Afficher magasin");
         magasin1.afficherMagasin();
 
         System.out.println("Nombre total de produits : " + magasin1.getNbProduits());
 
-        System.out.println("*Suppression du produit P2*");
-        magasin1.supprimer(P2);
+        System.out.println("*Suppression du produit P1*");
+        magasin1.supprimer(P1);
         magasin1.afficherMagasin();
 
         //System.out.println("*Magasin ayant un nombre supérieur de produits*");
@@ -99,7 +98,8 @@ public class Main {
         Caissier Caissier2 = new Caissier("124AO742" , "Ondoua Ulrich" , "Barrièrre" , 185 , 02);
         Vendeur Vendeur1 = new Vendeur("254EF767", "Elise Zoa" , "Coron" , 180 , 10);
         Responsable Responsable1 = new Responsable("466YT525" , "Astride Ngbwa" , "Nsimeyong" , 160 , 2000);
-        Carrefour.ajouterEmployes(Caissier1); Carrefour.ajouterEmployes(Caissier2); Carrefour.ajouterEmployes(Vendeur1);
+        Carrefour.ajouterEmployes(Caissier1); Carrefour.ajouterEmployes(Caissier2);
+        Carrefour.ajouterEmployes(Vendeur1);
         Carrefour.ajouterEmployes(Responsable1);
         Carrefour.afficherMagasin();
 
@@ -129,12 +129,14 @@ public class Main {
         Produit produit1 = new Produit(452 , "piment doux" , "Roma" , 1000);
         Produit produit2 = new Produit(554 , "mais doux" , "Soleil", 1500);
         Produit produit3 = new Produit(564 , "Mayonnaise" , "Roma" , 750);
-        Carrefour.ajouterProduit(produit1); Carrefour.ajouterProduit(produit2); Carrefour.ajouterProduit(produit3);
+        Carrefour.ajouterProduit(produit1); Carrefour.ajouterProduit(produit2);
+//        Carrefour.ajouterProduit(produit3);
 
         Produit produitA = new Produit(565 , "huile d'arrachide" , "Mayor" , 1500);
         Produit produitB = new Produit(859 , "sardine" , "Le vieux", 400);
         Produit produitC = new Produit(568 , "beurre" , "   President" , 1250);
-        SantaLucia.ajouterProduit(produitA); SantaLucia.ajouterProduit(produitB); SantaLucia.ajouterProduit(produitC);
+        SantaLucia.ajouterProduit(produitA); SantaLucia.ajouterProduit(produitB);
+//        SantaLucia.ajouterProduit(produitC);
 
         System.out.println("Affichage des détails des magasins");
         System.out.println("Détails du magasin carrefour");
@@ -182,12 +184,13 @@ public class Main {
         //AJOUT DES PRODUITS A UN MAGASIN
         magasin2.ajouterProduit(p1);
         magasin2.ajouterProduit(p2);
-        magasin2.ajouterProduit(p3);
-        magasin2.ajouterProduit(p4);
         magasin2.afficherMagasin();
-        p1.determinerTypePoduit(p1);
+//        magasin2.ajouterProduit(p3);
+//        magasin2.ajouterProduit(p4);
+      System.out.println( Produit.determinerTypePoduit(p1));
         System.out.println("**Determination du stock**");
         System.out.println(magasin2.calculStock());
+        System.out.println(ProduitFruit.calculStock(magasin2));
 
 
 

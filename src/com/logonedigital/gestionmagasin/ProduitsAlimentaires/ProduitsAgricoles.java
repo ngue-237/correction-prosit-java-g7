@@ -11,15 +11,5 @@ public class ProduitsAgricoles extends Produit {
         super(idProduit , type , libelle ,quantite, saison ) ;
     }
 
-    public String determinerTypePoduit(ProduitsAgricoles p) {
-        if (p instanceof ProduitFruit)
-            return "fruit" ;
-        else if (p instanceof ProduitLegume)
-            return "legume";
-        else
-            return "autre";
-    }
-
-
 
 }

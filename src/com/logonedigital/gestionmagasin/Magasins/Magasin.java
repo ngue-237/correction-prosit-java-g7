@@ -99,10 +99,10 @@ public class Magasin {
     }
 
     public void ajouterProduit(Produit produitA) throws MagasinPleinException{
-        if (this.nbProduits == 2)
-            throw new MagasinPleinException("Ce magasin est plein");
+        if (this.nbProduits == 2){
+            throw new MagasinPleinException("ce magasin est plein");
+        }
         else {
-
             if (!this.rechercherProduit(produitA)) {
                 this.produitAlimentaire[this.nbProduits] = produitA;
                 this.nbProduits++;
@@ -139,19 +139,25 @@ public class Magasin {
     }
 
     public void supprimer(Produit Ps) {
-        if (this.rechercherProduit(Ps)){
+        if (this.rechercherProduit(Ps)) {
             for (int i = 0; i < this.nbProduits; i++) {
                 if (produitAlimentaire[i].comparer(Ps)) {
-                    for (int s = i; s < this.nbProduits; s++){
-                        produitAlimentaire[s] = produitAlimentaire[s +1] ;
+                    if (i != this.nbProduits - 1) {
+                        for (int s = i; s < this.nbProduits; s++) {
+                            produitAlimentaire[s] = produitAlimentaire[s + 1];
+                            this.nbProduits--;
+                            System.out.println("Produit alimentaire supprimer avec succès !");
+                        }
+                    } else if (i == this.nbProduits - 1) {
+                        produitAlimentaire[i] = null;
                         this.nbProduits--;
                         System.out.println("Produit alimentaire supprimer avec succès !");
                     }
+
                 }
             }
-
-        } else {
-                System.out.println("Produit alimentaire non trouvé");
+        }else {
+            System.out.println("Produit alimentaire non trouvé");
         }
     }
 
@@ -183,7 +189,7 @@ public class Magasin {
     public double calculStock() {
         double quantiteTotale = 0;
         for (int i = 0; i < nbProduits; i++) {
-            if (produitAlimentaire[i].determinerTypePoduit(produitAlimentaire[i]).equals("fruit"))
+            if (Produit.determinerTypePoduit(produitAlimentaire[i]).equals("fruit"))
                 quantiteTotale += produitAlimentaire[i].getQuantite();
         }
         return quantiteTotale ;

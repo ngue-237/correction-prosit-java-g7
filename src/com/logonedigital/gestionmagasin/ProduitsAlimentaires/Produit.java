@@ -1,5 +1,7 @@
 package com.logonedigital.gestionmagasin.ProduitsAlimentaires;
 
+import com.logonedigital.gestionmagasin.Magasins.PrixNegatifException;
+
 import java.util.Date;
 
 public class Produit {
@@ -82,11 +84,11 @@ public class Produit {
         return this.prix;
     }
 
-    public void setPrix(double prix) {
+    public void setPrix(double prix) throws PrixNegatifException {
         if (prix>0)
             this.prix = prix;
         else
-            System.out.println("Entrez une valeur positive");
+            throw new PrixNegatifException("Entrez une valeur positive");
     }
 
     public Date getDateExpiration(Date time){
@@ -132,9 +134,12 @@ public class Produit {
 
     public boolean comparer(Produit P) {
         if (this.idProduit == P.idProduit)
-        if (P.getLibelle().equals(this.getLibelle()))
-        if (this.prix == P.prix)
             return true;
+        if (P.getLibelle().equals(this.getLibelle()))
+            return true;
+        if (this.prix != 0)
+            if (this.prix == P.prix)
+                return true;
 
         return false;
     }
@@ -153,7 +158,7 @@ public class Produit {
         return false;
     }
 
-    public String determinerTypePoduit(Produit p) {
+    static public String determinerTypePoduit(Produit p) {
         if (p instanceof ProduitFruit)
             return "fruit" ;
         else if (p instanceof ProduitLegume)
