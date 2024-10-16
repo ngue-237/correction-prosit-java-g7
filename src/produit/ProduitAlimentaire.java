@@ -1,5 +1,7 @@
 package produit;
 
+import exception.PrixNegatifException;
+
 import java.util.Date;
 
 public class ProduitAlimentaire {
@@ -8,7 +10,16 @@ public class ProduitAlimentaire {
     private String marque;
     private double prix;
     private Date dateExpiration ;
+    protected double qtite;
+    protected String type;
 
+
+    public ProduitAlimentaire(int idP, String lib, double qt, String type){
+        this.idProduit = idP;
+        this.libelle = lib;
+        this.qtite = qt;
+        this.type = type;
+    }
     /*
     on utilise le constructeur non paramétré pour instancier un objet
     lorsque les valeurs des différents attributs de cette objet ne sont pas
@@ -92,7 +103,7 @@ public class ProduitAlimentaire {
         if (prix>0)
             this.prix = prix;
         else
-            System.out.println("Entrer une valeur positive");
+            throw new PrixNegatifException("Entrer une valeur positive");
     }
 
     public Date getDateExpiration() {
@@ -124,11 +135,12 @@ public class ProduitAlimentaire {
             return true;
         if(this.libelle.equals(p.libelle))
             return true;
-        if(this.prix == p.prix)
-            return true;
+        if(this.prix!=0)
+            if(this.prix == p.prix)
+                return true;
         return false;
     }
-    public boolean comparer(ProduitAlimentaire p1, ProduitAlimentaire p2){
+    static public boolean comparer(ProduitAlimentaire p1, ProduitAlimentaire p2){
         if(p1.idProduit == p2.idProduit)
             return true;
         if(p1.libelle.equals(p2.libelle))
@@ -137,5 +149,14 @@ public class ProduitAlimentaire {
             return true;
 
         return false;
+    }
+
+     static public String determinerTypeProduit(ProduitAlimentaire p){
+        if(p instanceof ProduitFruit)
+            return "Fruits";
+        else if(p instanceof ProduitLegume)
+            return "Légumes";
+        else
+            return "Autres";
     }
 }

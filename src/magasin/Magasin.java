@@ -1,6 +1,7 @@
 package magasin;
 
 import employe.Employe;
+import exception.MagasinPleinException;
 import produit.ProduitAlimentaire;
 
 import java.util.Arrays;
@@ -16,7 +17,7 @@ public class Magasin {
     private int nbProduits;
 
     public Magasin(){
-        this.capaciteMagasin = 50;
+        this.capaciteMagasin = 20;
         this.nbProduits = 0;
         this.nbEmployes = 0;
         this.employes = new Employe[20];
@@ -26,7 +27,7 @@ public class Magasin {
         this.idMagasin = idM;
         this.adresse = ad;
         this.nomMagasin = nomM;
-        this.capaciteMagasin = 50;
+        this.capaciteMagasin = 20;
         this.nbProduits = 0;
         this.produitAlimentaire = new ProduitAlimentaire[this.capaciteMagasin];
         this.employes = new Employe[20];
@@ -72,7 +73,7 @@ public class Magasin {
         this.nbProduits = nbProduits;
     }
 
-    public void ajouterProduit(ProduitAlimentaire produitA){
+    public void ajouterProduit(ProduitAlimentaire produitA) throws MagasinPleinException {
         if(this.nbProduits<this.capaciteMagasin)
         {
             boolean trouve = this.rechercherProduit(produitA);
@@ -83,7 +84,7 @@ public class Magasin {
                System.out.println("Ce produit existe déjà");
 
         }else
-            System.out.println("Vous avez atteint les limites de stockage");
+            throw new MagasinPleinException("vous avez atteint la limite de stockage");
     }
 
     public void ajouterEmploye(Employe employe){
@@ -92,6 +93,7 @@ public class Magasin {
             this.nbEmployes++;
         }else
             System.out.println("Vous avez atteint les limites des employés !");
+
     }
 
 
